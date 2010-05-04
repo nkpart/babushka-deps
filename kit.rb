@@ -1,11 +1,4 @@
 
-installer 'haskell platform installed', :on => :osx do
-  source "http://hackage.haskell.org/platform/2010.1.0.0/haskell-platform-2010.1.0.1-i386.dmg"
-
-  met? {
-    (`ghc --version`.include? "6.12.1") && (`cabal --version`.include? "0.8.0")
-  } 
-end
 
 dep "kit" do
   requires "haskell platform installed"
