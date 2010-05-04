@@ -13,7 +13,7 @@ dep "kit" do
   }
   
   met? do
-    not shell("which kit").strip.empty?
+    not `which kit`.strip.empty?
   end
 end
 
