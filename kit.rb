@@ -23,8 +23,12 @@ end
 
 dep "mogeneration kit repository cloned" do
   met? do
-    result = log_shell("Checking for the mogeneration remote", "git remote show origin | grep Fetch")
-    result && result.include?("git@github.com:mogeneration/kit-repository.git")
+    File.exists?(File.expand_path('~/.kit')) && begin
+      Dir.chdir(File.expand_path('~/.kit')) do
+        result = log_shell("Checking for the mogeneration remote", "git remote show origin | grep Fetch")
+        result && result.include?("git@github.com:mogeneration/kit-repository.git")
+      end
+    end
   end
   
   meet do
